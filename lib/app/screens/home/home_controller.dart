@@ -8,6 +8,7 @@ class HomeController extends GetxController {
   var listCharacters = <Result>[].obs;
   var loading = true.obs;
   var loadingMore = false.obs;
+
   getCharacters({int offset = 0}) async {
     try {
       var result = await _service.getCharacters(offset);
