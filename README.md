@@ -11,7 +11,7 @@ Ao clicar no card de um personagem você será redirecionado para a página que 
 ### Tecnologias utilizadas
 
 - [Flutter](https://flutter.dev/)
-- [Dart](hhttps://dart.dev/)
+- [Dart](https://dart.dev/)
 
 ## Instalação do projeto
 
