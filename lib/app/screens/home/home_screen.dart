@@ -14,10 +14,10 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   var controller = Get.put(HomeController());
   var globalController = Get.put(GlobalController());
+
   @override
   void initState() {
     controller.getCharacters();
-
     super.initState();
   }
 
