@@ -11,8 +11,8 @@ class HomeController extends GetxController {
   getCharacters({int offset = 0}) async {
     try {
       var result = await _service.getCharacters(offset);
-
       characters.value.data = result?.data;
+
       for (var item in characters.value.data!.results!) {
         listCharacters.add(item);
       }

@@ -1,16 +1,56 @@
-# marvel
+# Marvel app Flutter
 
-A new Flutter project.
+Este projeto tem como objetivo consumir a API da MARVEL disponibilizando os dados em telas por meio de um projeto Flutter.
 
-## Getting Started
+## Sobre o projeto
 
-This project is a starting point for a Flutter application.
+A página inicial lista os personagens, com thumbnail, nome e uma breve descrição, é possível caminhar entre as paginações rolando para baixo onde a lista vai sendo incrementada de 20 em 20
 
-A few resources to get you started if this is your first Flutter project:
+Ao clicar no card de um personagem você será redirecionado para a página que detalha o respectivo personagem. Lá será possível visualizar mais informações, logo abaixo existe uma lista de quadrinhos, séries e hitórias, em que o personagem teve sua participação.
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+### Tecnologias utilizadas
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- [Flutter](https://flutter.dev/)
+- [Dart](hhttps://dart.dev/)
+
+## Instalação do projeto
+
+Após clonar o projeto do repositório Github, navegue até a raiz e execute os seguintes comandos no terminal:
+
+```
+flutter clean
+```
+
+logo após
+
+```
+flutter pub get
+```
+
+Esses comandos irão instalar todas as dependências necessárias do projeto.
+
+## Buildar o projeto
+
+Com o emulador rodando digite no terminal:
+
+```
+flutter run
+```
+
+## Estrutura de diretórios do projeto
+
+### lib
+
+Este diretório armazena todo o código desenvolvido ou seja, lógica da aplicação, componentes, páginas, rotas, serviços e etc.
+
+### app
+
+contém todo desenvolvimento que o usuario final irá visualizar
+
+### screens
+
+Onde contém as pastas das paginas do app, seus respecitovos models, adapters, services e controllers
+
+### assets
+
+contém as imagens do app

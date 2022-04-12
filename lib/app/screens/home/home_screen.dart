@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:marvel/app/screens/char_details/char_details.dart';
+import 'package:marvel/app/global_controller.dart';
+import 'package:marvel/app/screens/home/adapter/card_adapter.dart';
 import 'package:marvel/app/screens/home/home_controller.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -12,6 +13,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   var controller = Get.put(HomeController());
+  var globalController = Get.put(GlobalController());
   @override
   void initState() {
     controller.getCharacters();
@@ -54,78 +56,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         itemCount: controller.listCharacters.length,
                         itemBuilder: (context, index) {
                           var characters = controller.listCharacters[index];
-                          var image =
-                              "${controller.listCharacters[index].thumbnail?.path}.";
-                          var ext = controller
-                              .listCharacters[index].thumbnail?.extension
-                              .toString()
-                              .split('.')
-                              .last
-                              .toLowerCase();
-                          return SizedBox(
-                            width: 100,
-                            height: 150,
-                            child: GestureDetector(
-                              onTap: () {
-                                Get.to(
-                                  () => CharDetails(char: characters),
-                                );
-                              },
-                              child: Card(
-                                child: Row(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    SizedBox(
-                                      width: 100,
-                                      height: 150,
-                                      child: Image.network(
-                                        image + ext!,
-                                        fit: BoxFit.fill,
-                                      ),
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.only(
-                                        left: 15,
-                                        top: 15,
-                                      ),
-                                      child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          SizedBox(
-                                            width: 200,
-                                            child: Text(
-                                              characters.name ??
-                                                  "Título não disponível",
-                                              maxLines: 2,
-                                              style: const TextStyle(
-                                                color: Colors.black,
-                                                fontWeight: FontWeight.bold,
-                                              ),
-                                            ),
-                                          ),
-                                          const SizedBox(
-                                            height: 8,
-                                          ),
-                                          Expanded(
-                                            child: SizedBox(
-                                              width: 200,
-                                              child: Text(
-                                                characters.description ??
-                                                    "Descrição nao disponível",
-                                                maxLines: 4,
-                                                overflow: TextOverflow.ellipsis,
-                                              ),
-                                            ),
-                                          )
-                                        ],
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          );
+                          return CardAdapter(char: characters);
                         },
                       ),
                     ),

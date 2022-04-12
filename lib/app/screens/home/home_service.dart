@@ -14,8 +14,8 @@ class HomeService {
     var _privateKey = '9e9dd24afd86b25040a8b88dab6028b86627355e';
     var timeStamp = DateTime.now().millisecondsSinceEpoch;
     var text = timeStamp.toString() + _privateKey + _publicKey;
-
     var crypt = md5.convert(utf8.encode(text)).toString();
+
     var response = await dio.get(
       'http://gateway.marvel.com/v1/public/characters?offset=$offset&ts=$timeStamp&apikey=$_publicKey&hash=$crypt',
     );

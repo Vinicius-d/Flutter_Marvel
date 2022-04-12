@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:marvel/app/global_controller.dart';
 import 'package:marvel/app/screens/home/model/characters_model.dart';
 import 'package:get/get.dart';
 
-class CharDetails extends StatelessWidget {
+class CharDetailsScreen extends StatelessWidget {
   final Result char;
-  const CharDetails({Key? key, required this.char}) : super(key: key);
+  const CharDetailsScreen({Key? key, required this.char}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +24,8 @@ class CharDetails extends StatelessWidget {
               height: 300,
               width: Get.width * 9,
               child: Image.network(
-                "${char.thumbnail!.path}.${char.thumbnail?.extension!.toString().split('.').last.toLowerCase()}",
+                GlobalController.i.validImage(
+                    char.thumbnail!.path, char.thumbnail?.extension),
                 fit: BoxFit.cover,
               ),
             ),
@@ -53,7 +55,7 @@ class CharDetails extends StatelessWidget {
                   ),
                   ListView.builder(
                     padding: const EdgeInsets.all(0.0),
-                    physics: NeverScrollableScrollPhysics(),
+                    physics: const NeverScrollableScrollPhysics(),
                     shrinkWrap: true,
                     itemCount: char.comics?.returned,
                     itemBuilder: (context, index) {
@@ -76,7 +78,7 @@ class CharDetails extends StatelessWidget {
                   ),
                   ListView.builder(
                     padding: const EdgeInsets.all(0.0),
-                    physics: NeverScrollableScrollPhysics(),
+                    physics: const NeverScrollableScrollPhysics(),
                     shrinkWrap: true,
                     itemCount: char.series?.returned,
                     itemBuilder: (context, index) {
@@ -99,7 +101,7 @@ class CharDetails extends StatelessWidget {
                   ),
                   ListView.builder(
                     padding: const EdgeInsets.all(0.0),
-                    physics: NeverScrollableScrollPhysics(),
+                    physics: const NeverScrollableScrollPhysics(),
                     shrinkWrap: true,
                     itemCount: char.stories?.returned,
                     itemBuilder: (context, index) {
